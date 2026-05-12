@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --radius-theme: var(--radius-theme);
+}
+
+:root {
+  --color-primary: #3b82f6;
+  --color-secondary: #1e293b;
+  --color-accent: #10b981;
+  --color-background: #ffffff;
+  --color-text: #0f172a;
+  --radius-theme: 0.75rem;
+}
+
+.dark {
+  --color-primary: #60a5fa;
+  --color-secondary: #94a3b8;
+  --color-accent: #34d399;
+  --color-background: #0f172a;
+  --color-text: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white font-semibold rounded-theme hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/20;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary text-primary font-semibold rounded-theme hover:bg-primary/5 transition-all active:scale-95;
+  }
+  
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
